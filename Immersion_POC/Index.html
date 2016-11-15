@@ -1,11 +1,139 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>heartbeat</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/hearticon.ico" />
+
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link href="style/styles.css" rel="stylesheet">
+    <!--Icons-->
+    <script src="script/lumino.glyphs.js"></script>
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
-    this is to test git hub
-    this is branch one
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><span>Heart</span>Beat</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <script>
+                            $("#username").text("srutinreddy.palla@cognizant.com");
+                        </script>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+            <li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+            <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
+            <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
+            <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
+            <li><a href="questionare.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Questionare</a></li>
+        </ul>
+    </div><!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+        </div><!--/.row-->
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">My Projects</div>
+                    <div class="panel-body">
+                        <div class="canvas-wrapper">
+                            <article class="clearfix" data-last-update-color="yellow">
+                                <a class="clearfix" href="/projects/a4c388f3-1402-4e1a-9cd0-2743a242f295">
+                                    <h2 class="pull-left">Immersion</h2>
+                                    <span class="project_code pull-left">(Project Code: )</span>
+                                </a>
+                                <div class="project_members">
+                                    <div class="project_member">
+                                        <img src="https://www.gravatar.com/avatar/8967e49fda882a85e3d8fa3de7d92b2c">
+                                        <a href="/users/86">
+                                            <span>Srutin Palla</span>
+                                        </a>
+                                    </div>
+                                    <div class="project_member">
+                                        <img src="https://www.gravatar.com/avatar/32b597a3685e5a754ffeb8349b2255d2">
+                                        <a href="/users/43">
+                                            <span>Chris McAvoy</span>
+                                        </a>
+                                    </div>
+                                    <div class="project_member">
+                                        <img src="https://www.gravatar.com/avatar/b034db6ddbe7b22f2f5ee24d48defb8a">
+                                        <a href="/users/83">
+                                            <span>Ebony Gordon</span>
+                                        </a>
+                                    </div>
+                                    <div class="project_member">
+                                        <img src="https://www.gravatar.com/avatar/9e08af6a5471ee1f4a3d0b5e17f55859">
+                                        <a href="/users/85">
+                                            <span>Rajesh Acharya</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <span class="last_updated">Updated about 4 hours ago</span>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Other Projects</div>
+                    <div class="panel-body">
+                        <div class="canvas-wrapper">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+    </div>	<!--/.main-->
+
 </body>
+
 </html>
