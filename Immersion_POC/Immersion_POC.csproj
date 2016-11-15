@@ -75,7 +75,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.html" />
+    <Content Include="calendar.html" />
+    <Content Include="ekg.html" />
+    <Content Include="images\heartbeat.png" />
+    <Content Include="images\hearticon.ico" />
+    <Content Include="images\q-logo.png" />
     <Content Include="Index.html" />
+    <Content Include="script\bootstrap.js" />
+    <Content Include="script\jquery-1.11.1.min.js" />
+    <Content Include="script\lumino.glyphs.js" />
+    <Content Include="style\bootstrap.css" />
+    <Content Include="style\styles.css" />
+    <Content Include="questionare.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
