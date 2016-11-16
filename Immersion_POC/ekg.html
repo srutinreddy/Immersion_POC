@@ -134,29 +134,28 @@
                             <div id="response"></div>
                             <input type="button" value="clickme" id="testButton"/>
                             <script>
-                                $('#testButton').on("click", function () {
-                                    var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=srutin&category=TDD&mode=add&q1=yes&q2=yes";
+                                //$('#testButton').on("click", function () {
+                                //    var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=srutin&category=TDD&mode=add&q1=yes&q2=yes";
 
-                                        jQuery.support.cors = true;
-                                        $.ajax({
-                                            url: url,
-                                            url: 'users.php',
-                                            dataType: 'json',
-                                            type: 'get',
-                                            contentType: 'application/json',
-                                            data: JSON.stringify({ "first-name": $('#first-name').val(), "last-name": $('#last-name').val() }),
-                                            processData: false,
-                                            success: function (data, textStatus, jQxhr) {
-                                                alert(JSON.stringify(data));
-                                                $('#response').html(JSON.stringify(data));
-                                            },
-                                            error: function (jqXhr, textStatus, errorThrown) {
-                                                //alert(errorThrown);
-                                                $('#response').html(JSON.stringify(errorThrown));
-                                            }
-                                        });
+                                //        jQuery.support.cors = true;
+                                //        $.ajax({
+                                //            url: url,
+                                //            dataType: 'json',
+                                //            type: 'get',
+                                //            contentType: 'application/json',
+                                //            data: JSON.stringify({ "first-name": $('#first-name').val(), "last-name": $('#last-name').val() }),
+                                //            processData: false,
+                                //            success: function (data, textStatus, jQxhr) {
+                                //                alert(JSON.stringify(data));
+                                //                $('#response').html(JSON.stringify(data));
+                                //            },
+                                //            error: function (jqXhr, textStatus, errorThrown) {
+                                //                //alert(errorThrown);
+                                //                $('#response').html(JSON.stringify(errorThrown));
+                                //            }
+                                //        });
                                     
-                                });
+                                //});
                             </script>
 
                         </div>
