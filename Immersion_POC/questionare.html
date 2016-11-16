@@ -19,9 +19,9 @@
     <![endif]-->
     <style>
         table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
     </style>
 </head>
 
@@ -82,36 +82,102 @@
                     <div class="panel-body">
                         <div class="canvas-wrapper">
                             <center>  <input type="button" value="start" id="startButton" /></center>
+                            <div id="summary">
 
+                            </div>
                             <div id="thankYou">
                                 <h1>THANK YOU, YOUR RESPONSE HAS BEEN SAVED</h1>
                             </div>
                             <script>
-                                $( document ).ready(function() {
+                                $(document).ready(function () {
                                     $('#thankYou').hide();
                                     $('#table').hide();
                                     $('#submitButton').hide();
-                                $('#startButton').on("click", function () {
-                                    $('#table').show();
-                                    $('#submitButton').show();
-                                    $('#startButton').hide();
-                                    ('#thankYou').hide();
-                                });
-                                $('#submitButton').on("click", function () {
-                                    $('#table').hide();
-                                    $('#thankYou').show();
-                                    $('#submitButton').hide();
-                                });
+
+                                    $('#startButton').on("click", function () {
+                                        $('#table').show();
+                                        $('#submitButton').show();
+                                        $('#startButton').hide();
+                                        ('#thankYou').hide();
+                                    });
+
+                                    $('#submitButton').on("click", function () {
+                                        var R1 = $('input[name="check1"]:checked').val();
+                                        var R2 = $('input[name="check2"]:checked').val();
+                                        var R3 = $('input[name="check3"]:checked').val();
+                                        var R4 = $('input[name="check4"]:checked').val();
+                                        var R5 = $('input[name="check5"]:checked').val();
+                                        var R6 = $('input[name="check6"]:checked').val();
+                                        if (R1 == undefined) {
+                                            alert("Q1 not answered")
+                                        }
+                                        else if (R2 == undefined) {
+                                            alert("Q2 not answered")
+                                        }
+                                        else if (R3 == undefined) {
+                                            alert("Q3 not answered")
+                                        }
+                                        else if (R4 == undefined) {
+                                            alert("Q4 not answered")
+                                        }
+                                        else if (R5 == undefined) {
+                                            alert("Q5 not answered")
+                                        }
+                                        else if (R6 == undefined) {
+                                            alert("Q6 not answered")
+                                        }
+                                        else {
+                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3, "Q4": R4, "Q5": R5, "Q6": R6 };
+                                            alert(JSON.stringify(jsonObject));
+                                            $('#table').hide();
+                                            $('#submitButton').hide();
+                                            $('#thankYou').show();
+                                            $('#summary').append('<div class="item">' +
+                                                                   '<table>' +
+                                                                  '<tr>' +
+                                                                  '<th>Question</th> ' +
+                                                                  '<th>Response</th> ' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q1</td>' +
+                                                                  '<td>' + R1 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q2</td>' +
+                                                                  '<td>' + R2 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q3</td>' +
+                                                                  '<td>' + R3 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q4</td>' +
+                                                                  '<td>' + R4 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q5</td>' +
+                                                                  '<td>' + R5 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q6</td>' +
+                                                                  '<td>' + R6 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '</table>   ' +
+                                                                  '</div>');
+                                        }
+                                    });
 
                                 });
+                                
+
                             </script>
                             <table id="table" style="width:100%">
                                 <tr>
                                     <td>Did you have to escalate any issues last week?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check1" value="yes"> yes
-                                            <input type="radio" name="check1" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check1" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check1" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
@@ -119,8 +185,8 @@
                                     <td>As a project team, did you hit your commitments last week?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check2" value="yes"> yes
-                                            <input type="radio" name="check2" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check2" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check2" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
@@ -128,8 +194,8 @@
                                     <td>Did you communicate with your client last week?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check3" value="yes"> yes
-                                            <input type="radio" name="check3" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check3" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check3" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
@@ -137,8 +203,8 @@
                                     <td>Are you following Agile methodologies?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check4" value="yes"> yes
-                                            <input type="radio" name="check4" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check4" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check4" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
@@ -146,8 +212,8 @@
                                     <td>Are you happy with your team's performance?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check5" value="yes"> yes
-                                            <input type="radio" name="check5" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check5" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check5" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
@@ -155,21 +221,20 @@
                                     <td>Do you need help with anything right now?</td>
                                     <td>
                                         <form action="">
-                                            <input type="radio" name="check6" value="yes"> yes
-                                            <input type="radio" name="check6" value="no"> no
+                                            <input class="radio-inline" type="radio" name="check6" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check6" value="no"> no
                                         </form>
                                     </td>
                                 </tr>
                             </table>
                             <br />
-                            <input type="button" class="pull-right" id="submitButton" value="submit"/>
+                            <input type="button" class="pull-right" id="submitButton" value="submit" />
                         </div>
                     </div>
                 </div>
             </div>
         </div><!--/.row-->
     </div>	<!--/.main-->
-
 
 </body>
 
