@@ -82,6 +82,16 @@
     <Content Include="images\hearticon.ico" />
     <Content Include="images\q-logo.png" />
     <Content Include="Index.html" />
+    <Content Include="CodeReview.html" />
+    <Content Include="ContinuousDeployment.html" />
+    <Content Include="CustomerAcceptance.html" />
+    <Content Include="DailyStandups.html" />
+    <Content Include="PairProgramming.html" />
+    <Content Include="Productbacklog.html" />
+    <Content Include="Retrospectives.html" />
+    <Content Include="SprintPlanning.html" />
+    <Content Include="TDD.html" />
+    <Content Include="VelocityTracking.html" />
     <Content Include="script\bootstrap.js" />
     <Content Include="script\jquery-1.11.1.min.js" />
     <Content Include="script\lumino.glyphs.js" />

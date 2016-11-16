@@ -17,7 +17,12 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,10 +38,7 @@
                 <a class="navbar-brand" href="index.html"><span>Heart</span>Beat</a>
                 <ul class="user-menu">
                     <li class="dropdown pull-right">
-                        <a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
-                        <script>
-                            $("#username").text("srutinreddy.palla@cognizant.com");
-                        </script>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
                             <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -51,15 +53,15 @@
 
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <ul class="nav menu">
-            <li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+            <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
             <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
             <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
             <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
-            <li class="parent ">
+            <li class="parent active">
                 <a href="#">
                     <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Questionnaire
                 </a>
-                <ul class="children collapse" id="sub-item-1">
+                <ul class="children collapse in" id="sub-item-1">
                     <li>
                         <a class="" href="SprintPlanning.html">
                             <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sprint Planning
@@ -119,76 +121,102 @@
         <div class="row">
             <ol class="breadcrumb">
                 <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                <li class="active">Dashboard</li>
+                <li class="active">Pair Programming</li>
             </ol>
         </div><!--/.row-->
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
-            </div>
-        </div><!--/.row-->
-
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">My Projects</div>
-                    <div class="panel-body">
-                        <div class="canvas-wrapper">
-                            <article class="clearfix" data-last-update-color="yellow">
-                                <a class="clearfix" href="/projects/a4c388f3-1402-4e1a-9cd0-2743a242f295">
-                                    <h2 class="pull-left">Immersion</h2>
-                                    <span class="project_code pull-left">(Project Code: )</span>
-                                </a>
-                                <div class="project_members">
-                                    <div class="project_member">
-                                        <img src="https://www.gravatar.com/avatar/8967e49fda882a85e3d8fa3de7d92b2c">
-                                        <a href="/users/86">
-                                            <span>Srutin Palla</span>
-                                        </a>
-                                    </div>
-                                    <div class="project_member">
-                                        <img src="https://www.gravatar.com/avatar/32b597a3685e5a754ffeb8349b2255d2">
-                                        <a href="/users/43">
-                                            <span>Chris McAvoy</span>
-                                        </a>
-                                    </div>
-                                    <div class="project_member">
-                                        <img src="https://www.gravatar.com/avatar/b034db6ddbe7b22f2f5ee24d48defb8a">
-                                        <a href="/users/83">
-                                            <span>Ebony Gordon</span>
-                                        </a>
-                                    </div>
-                                    <div class="project_member">
-                                        <img src="https://www.gravatar.com/avatar/9e08af6a5471ee1f4a3d0b5e17f55859">
-                                        <a href="/users/85">
-                                            <span>Rajesh Acharya</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="last_updated">Updated about 4 hours ago</span>
-                            </article>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="page-header">Pair Programming</h1>
             </div>
         </div><!--/.row-->
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Other Projects</div>
+                    <div class="panel-heading">Feedback</div>
                     <div class="panel-body">
                         <div class="canvas-wrapper">
+                            <center>  <input type="button" value="start" id="startButton" /></center>
+                            <div id="summary">
 
+                            </div>
+                            <div id="thankYou">
+
+                            </div>
+                            <script>
+                                $(document).ready(function () {
+                                    $('#thankYou').hide();
+                                    $('#table').hide();
+                                    $('#submitButton').hide();
+                                    $('#summary').hide();
+
+                                    $('#startButton').on("click", function () {
+                                        $('#table').show();
+                                        $('#submitButton').show();
+                                        $('#startButton').hide();
+                                        $('#thankYou').hide();
+                                        $('#summary').hide();
+                                    });
+
+                                    $('#submitButton').on("click", function () {
+                                        var R1 = $('input[name="check1"]:checked').val();
+                                        var R2 = $('input[name="check2"]:checked').val();
+                                        var R3 = $('input[name="check3"]:checked').val();
+                                        var R4 = $('input[name="check4"]:checked').val();
+                                        var R5 = $('input[name="check5"]:checked').val();
+                                        var R6 = $('input[name="check6"]:checked').val();
+                                        if (R1 == undefined) {
+                                            alert("Q1 not answered")
+                                        }
+                                        else {
+                                            var jsonObject = { "Q1": R1};
+                                            //alert(JSON.stringify(jsonObject));
+                                            $('#table').hide();
+                                            $('#submitButton').hide();
+                                            $('#thankYou').show()
+                                            $('#thankYou').append('<div class="item"> <h1>THANK YOU, YOUR RESPONSE HAS BEEN SAVED</h1></div>');
+                                            $('#summary').show();
+                                            $('#summary').append('<div class="item">' +
+                                                                  '<h1>Summary</h1>'+
+                                                                  '<table>' +
+                                                                  '<tr>' +
+                                                                  '<th>Question</th> ' +
+                                                                  '<th>Response</th> ' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q1</td>' +
+                                                                  '<td>' + R1 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '</table>   ' +
+                                                                  '</div>');
+                                        }
+                                    });
+
+                                });
+
+
+                            </script>
+                            <table id="table" style="width:100%">
+                                <tr>
+                                    <td>Does the team pair program more than 60% of the time?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check1" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check1" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <input type="button" class="pull-right" id="submitButton" value="submit" />
                         </div>
                     </div>
                 </div>
             </div>
         </div><!--/.row-->
-
     </div>	<!--/.main-->
+
 
 </body>
 
