@@ -58,7 +58,7 @@
             <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
             <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
             <li class="parent active">
-                <a href="#">
+                <a href="questionare.html">
                     <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Questionnaire
                 </a>
                 <ul class="children collapse in" id="sub-item-1">
@@ -185,7 +185,8 @@
                                             var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3 };
                                             var questionarename = "VELOCITYTRACKING";
                                             var param = "add";
-                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=srutin&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3;
+                                            var email = "srutinreddy.palla";
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail="+email+"&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3;
 
                                             jQuery.support.cors = true;
                                             $.ajax({
