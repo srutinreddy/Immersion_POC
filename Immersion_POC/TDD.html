@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>heartbeat</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/hearticon.ico" />
+
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link href="style/styles.css" rel="stylesheet">
+    <!--Icons-->
+    <script src="script/lumino.glyphs.js"></script>
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><span>Heart</span>Beat</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+            <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+            <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
+            <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
+            <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
+            <li class="parent active">
+                <a href="questionare.html">
+                    <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Questionnaire
+                </a>
+                <ul class="children collapse in" id="sub-item-1">
+                    <li>
+                        <a class="" href="SprintPlanning.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sprint Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="DailyStandups.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Daily Standups
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="TDD.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> TDD
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="VelocityTracking.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Velocity Tracking
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="ContinuousDeployment.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg>ContinuousDeployment
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="CodeReview.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Code Review
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="PairProgramming.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pair Programming
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="Retrospectives.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Retrospectives
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="CustomerAcceptance.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Customer Acceptance
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="Productbacklog.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Product backlog
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">TDD</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">TDD</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Feedback</div>
+                    <div class="panel-body">
+                        <div class="canvas-wrapper">
+                            <center>  <input type="button" value="start" id="startButton" /></center>
+                            <div id="summary">
+
+                            </div>
+                            <div id="thankYou">
+
+                            </div>
+                            <center>  <input type="button" value="next" id="nextPageButton" /></center>
+                            <script>
+                                $(document).ready(function () {
+                                    $('#thankYou').hide();
+                                    $('#table').hide();
+                                    $('#submitButton').hide();
+                                    $('#summary').hide();
+                                    $('#nextPageButton').hide();
+
+                                    $('#startButton').on("click", function () {
+                                        $('#table').show();
+                                        $('#submitButton').show();
+                                        $('#startButton').hide();
+                                        $('#thankYou').hide();
+                                        $('#summary').hide();
+                                        $('#nextPageButton').hide();
+                                    });
+                                    $('#nextPageButton').on("click", function () {
+                                        window.location.href = "VelocityTracking.html";
+                                    });
+
+                                    $('#submitButton').on("click", function () {
+                                        var R1 = $('input[name="check1"]:checked').val();
+                                        var R2 = $('input[name="check2"]:checked').val();
+                                        var R3 = $('input[name="check3"]:checked').val();
+                                        var R4 = $('input[name="check4"]:checked').val();
+                                        var R5 = $('input[name="check5"]:checked').val();
+                                        var R6 = $('input[name="check6"]:checked').val();
+                                        if (R1 == undefined) {
+                                            alert("Q1 not answered")
+                                        }
+                                        else if (R2 == undefined) {
+                                            alert("Q2 not answered")
+                                        }
+                                        else if (R3 == undefined) {
+                                            alert("Q3 not answered")
+                                        }
+                                        else {
+                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3 };
+                                            var questionarename = "TDD";
+                                            var param = "add";
+                                            var email = "srutinreddy.palla";
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3;
+
+                                            jQuery.support.cors = true;
+                                            $.ajax({
+                                                url: url,
+                                                dataType: 'json',
+                                                type: 'get',
+                                                contentType: 'application/json',
+                                                processData: false,
+                                                success: function (data, textStatus, jQxhr) {
+                                                    //alert(JSON.stringify(data));
+                                                    //$('#response').html(JSON.stringify(data));
+                                                },
+                                                error: function (jqXhr, textStatus, errorThrown) {
+                                                    //alert(errorThrown);
+                                                    //$('#response').html(JSON.stringify(errorThrown));
+                                                }
+                                            });
+                                            //alert(JSON.stringify(jsonObject));
+                                            $('#nextPageButton').show();
+                                            $('#table').hide();
+                                            $('#submitButton').hide();
+                                            $('#thankYou').show()
+                                            $('#thankYou').append('<div class="item"> <h1>THANK YOU, YOUR RESPONSE HAS BEEN SAVED</h1></div>');
+                                            $('#summary').show();
+                                            $('#summary').append('<div class="item">' +
+                                                                  '<h1>Summary</h1>'+
+                                                                  '<table>' +
+                                                                  '<tr>' +
+                                                                  '<th>Question</th> ' +
+                                                                  '<th>Response</th> ' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q1</td>' +
+                                                                  '<td>' + R1 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q2</td>' +
+                                                                  '<td>' + R2 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q3</td>' +
+                                                                  '<td>' + R3 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '</table>   ' +
+                                                                  '</div>');
+                                        }
+                                    });
+
+                                });
+
+
+                            </script>
+                            <table id="table" style="width:100%">
+                                <tr>
+                                    <td>Are tests written before writing code?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check1" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check1" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Does the team track code coverage?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check2" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check2" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Does the test suite cover greater than 90% of the code?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check3" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check3" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <input type="button" class="pull-right" id="submitButton" value="submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div>	<!--/.main-->
+
+
+</body>
+
+</html>

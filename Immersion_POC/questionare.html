@@ -55,9 +55,9 @@
         <ul class="nav menu">
             <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
             <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
-            <li class="active"><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
+            <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
             <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
-            <li class="parent ">
+            <li class="parent active">
                 <a href="questionare.html">
                     <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Questionnaire
                 </a>
@@ -121,24 +121,66 @@
         <div class="row">
             <ol class="breadcrumb">
                 <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                <li class="active">Calendar</li>
+                <li class="active">Questionare</li>
             </ol>
         </div><!--/.row-->
 
         <div class="row">
             <div class="col-lg-12">
+                <h1 class="page-header">Questionare</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Resourcing Calendar</div>
+                    <div class="panel-heading">Feedback</div>
                     <div class="panel-body">
                         <div class="canvas-wrapper">
+                            <div id="response"></div>
 
+                            <input type="button" value="Start Questionnaire" id="startQuestionnaire"/>
+                            <script>
+                                $('#startQuestionnaire').on("click", function () {
+
+                                    window.location.href = "SprintPlanning.html";
+                                });
+                                var questionarename = "SPRINTPLANNING";
+                                var param = "summary";
+                                var email = "srutinreddy.palla";
+                                var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&mode=" + param;
+
+                                jQuery.support.cors = true;
+                                $.ajax({
+                                    url: url,
+                                    dataType: 'json',
+                                    type: 'get',
+                                    contentType: 'application/json',
+                                    processData: false,
+                                    success: function (data, textStatus, jQxhr) {
+                                        //alert(JSON.stringify(data));
+                                        $('#response').html(JSON.stringify(data));
+                                        console.log("data.sub_data " + JSON.stringify(data.sub_data));
+                                        console.log("data.user_name " + JSON.stringify(data.user_name));
+                                        console.log("data.sub_data.stat_avg[0] " + JSON.stringify(data.sub_data.stat_avg[0]));
+                                        console.log("data.sub_data.cat[0] " + JSON.stringify(data.sub_data.cat[0]));
+                                        console.log("data.sub_data.stat_avg[1] " + JSON.stringify(data.sub_data.stat_avg[1]));
+                                        console.log("data.sub_data.cat[1] " + JSON.stringify(data.sub_data.cat[1]));
+
+
+                                    },
+                                    error: function (jqXhr, textStatus, errorThrown) {
+                                        //alert(errorThrown);
+                                        $('#response').html(JSON.stringify(errorThrown));
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
             </div>
         </div><!--/.row-->
     </div>	<!--/.main-->
-
 
 </body>
 

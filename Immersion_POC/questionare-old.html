@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>heartbeat</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/hearticon.ico" />
+
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link href="style/styles.css" rel="stylesheet">
+    <!--Icons-->
+    <script src="script/lumino.glyphs.js"></script>
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><span>Heart</span>Beat</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+            <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+            <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
+            <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
+            <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
+            <li class="active"><a href="questionare.html"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Questionare</a></li>
+        </ul>
+    </div><!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Questionare</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Questionare</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Feedback</div>
+                    <div class="panel-body">
+                        <div class="canvas-wrapper">
+                            <center>  <input type="button" value="start" id="startButton" /></center>
+                            <div id="summary">
+
+                            </div>
+                            <div id="thankYou">
+                                <h1>THANK YOU, YOUR RESPONSE HAS BEEN SAVED</h1>
+                            </div>
+                            <script>
+                                $(document).ready(function () {
+                                    $('#thankYou').hide();
+                                    $('#table').hide();
+                                    $('#submitButton').hide();
+
+                                    $('#startButton').on("click", function () {
+                                        $('#table').show();
+                                        $('#submitButton').show();
+                                        $('#startButton').hide();
+                                        ('#thankYou').hide();
+                                    });
+
+                                    $('#submitButton').on("click", function () {
+                                        var R1 = $('input[name="check1"]:checked').val();
+                                        var R2 = $('input[name="check2"]:checked').val();
+                                        var R3 = $('input[name="check3"]:checked').val();
+                                        var R4 = $('input[name="check4"]:checked').val();
+                                        var R5 = $('input[name="check5"]:checked').val();
+                                        var R6 = $('input[name="check6"]:checked').val();
+                                        if (R1 == undefined) {
+                                            alert("Q1 not answered")
+                                        }
+                                        else if (R2 == undefined) {
+                                            alert("Q2 not answered")
+                                        }
+                                        else if (R3 == undefined) {
+                                            alert("Q3 not answered")
+                                        }
+                                        else if (R4 == undefined) {
+                                            alert("Q4 not answered")
+                                        }
+                                        else if (R5 == undefined) {
+                                            alert("Q5 not answered")
+                                        }
+                                        else if (R6 == undefined) {
+                                            alert("Q6 not answered")
+                                        }
+                                        else {
+                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3, "Q4": R4, "Q5": R5, "Q6": R6 };
+                                            alert(JSON.stringify(jsonObject));
+                                            $('#table').hide();
+                                            $('#submitButton').hide();
+                                            $('#thankYou').show();
+                                            $('#summary').append('<div class="item">' +
+                                                                   '<table>' +
+                                                                  '<tr>' +
+                                                                  '<th>Question</th> ' +
+                                                                  '<th>Response</th> ' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q1</td>' +
+                                                                  '<td>' + R1 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q2</td>' +
+                                                                  '<td>' + R2 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q3</td>' +
+                                                                  '<td>' + R3 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q4</td>' +
+                                                                  '<td>' + R4 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q5</td>' +
+                                                                  '<td>' + R5 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q6</td>' +
+                                                                  '<td>' + R6 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '</table>   ' +
+                                                                  '</div>');
+                                        }
+                                    });
+
+                                });
+                                
+
+                            </script>
+                            <table id="table" style="width:100%">
+                                <tr>
+                                    <td>Did you have to escalate any issues last week?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check1" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check1" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>As a project team, did you hit your commitments last week?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check2" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check2" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did you communicate with your client last week?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check3" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check3" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Are you following Agile methodologies?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check4" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check4" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Are you happy with your team's performance?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check5" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check5" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Do you need help with anything right now?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check6" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check6" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <input type="button" class="pull-right" id="submitButton" value="submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div>	<!--/.main-->
+
+</body>
+
+</html>

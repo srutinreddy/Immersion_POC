@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>heartbeat</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/hearticon.ico" />
+
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link href="style/styles.css" rel="stylesheet">
+    <!--Icons-->
+    <script src="script/lumino.glyphs.js"></script>
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><span>Heart</span>Beat</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+            <li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+            <li><a href="ekg.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> EKG</a></li>
+            <li><a href="calendar.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Calendar</a></li>
+            <li><a href="admin.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Admin Dashboard</a></li>
+            <li class="parent active">
+                <a href="questionare.html">
+                    <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Questionnaire
+                </a>
+                <ul class="children collapse in" id="sub-item-1">
+                    <li>
+                        <a class="" href="SprintPlanning.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sprint Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="DailyStandups.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Daily Standups
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="TDD.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> TDD
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="VelocityTracking.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Velocity Tracking
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="ContinuousDeployment.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg>ContinuousDeployment
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="CodeReview.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Code Review
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="PairProgramming.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pair Programming
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="Retrospectives.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Retrospectives
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="CustomerAcceptance.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Customer Acceptance
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="Productbacklog.html">
+                            <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Product backlog
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Sprint Planning</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Sprint Planning</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Feedback</div>
+                    <div class="panel-body">
+                        <div class="canvas-wrapper">
+                            <center>  <input type="button" value="start" id="startButton" /></center>
+                            <div id="summary">
+
+                            </div>
+                            <div id="thankYou">
+
+                            </div>
+                            <center>  <input type="button" value="next" id="nextPageButton" /></center>
+                            <script>
+                                $(document).ready(function () {
+                                    $('#thankYou').hide();
+                                    $('#table').hide();
+                                    $('#submitButton').hide();
+                                    $('#summary').hide();
+                                    $('#nextPageButton').hide();
+
+                                    $('#startButton').on("click", function () {
+                                        $('#table').show();
+                                        $('#submitButton').show();
+                                        $('#startButton').hide();
+                                        $('#thankYou').hide();
+                                        $('#summary').hide();
+                                        $('#nextPageButton').hide();
+                                    });
+                                    $('#nextPageButton').on("click", function () {
+                                        window.location.href = "DailyStandups.html";
+                                    });
+
+                                    $('#submitButton').on("click", function () {
+                                        var R1 = $('input[name="check1"]:checked').val();
+                                        var R2 = $('input[name="check2"]:checked').val();
+                                        var R3 = $('input[name="check3"]:checked').val();
+                                        var R4 = $('input[name="check4"]:checked').val();
+                                        var R5 = $('input[name="check5"]:checked').val();
+                                        var R6 = $('input[name="check6"]:checked').val();
+                                        var R7 = $('input[name="check7"]:checked').val();
+                                        var R8 = $('input[name="check8"]:checked').val();
+                                        var R9 = $('input[name="check9"]:checked').val();
+                                        var R10 = $('input[name="check10"]:checked').val();
+                                        var R11 = $('input[name="check11"]:checked').val();
+                                        var R12 = $('input[name="check12"]:checked').val();
+                                        if (R1 == undefined) {
+                                            alert("Q1 not answered")
+                                        }
+                                        else if (R2 == undefined) {
+                                            alert("Q2 not answered")
+                                        }
+                                        else if (R3 == undefined) {
+                                            alert("Q3 not answered")
+                                        }
+                                        else if (R4 == undefined) {
+                                            alert("Q4 not answered")
+                                        }
+                                        else if (R5 == undefined) {
+                                            alert("Q5 not answered")
+                                        }
+                                        else if (R6 == undefined) {
+                                            alert("Q6 not answered")
+                                        }
+                                        else if (R7 == undefined) {
+                                            alert("Q7 not answered")
+                                        }
+                                        else if (R8 == undefined) {
+                                            alert("Q8 not answered")
+                                        }
+                                        else if (R9 == undefined) {
+                                            alert("Q9 not answered")
+                                        }
+                                        else if (R10 == undefined) {
+                                            alert("Q10 not answered")
+                                        }
+                                        else if (R11 == undefined) {
+                                            alert("Q11 not answered")
+                                        }
+                                        else if (R12 == undefined) {
+                                            alert("Q12 not answered")
+                                        }
+                                        else {
+                                            var questionarename = "SPRINTPLANNING";
+                                            var param = "add";
+                                            var email = "srutinreddy.palla";
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3 + "&q4=" + R4 + "&q5=" + R5 + "&q6=" + R6 + "&q7=" + R7 + "&q8=" + R8 + "&q9=" + R9 + "&q10=" + R10 + "&q11=" + R11 + "&q12=" + R12;
+
+                                            jQuery.support.cors = true;
+                                            $.ajax({
+                                                url: url,
+                                                dataType: 'json',
+                                                type: 'get',
+                                                contentType: 'application/json',
+                                                processData: false,
+                                                success: function (data, textStatus, jQxhr) {
+                                                    //alert(JSON.stringify(data));
+                                                    //$('#response').html(JSON.stringify(data));
+                                                },
+                                                error: function (jqXhr, textStatus, errorThrown) {
+                                                    //alert(errorThrown);
+                                                    //$('#response').html(JSON.stringify(errorThrown));
+                                                }
+                                            });
+                                            //alert(JSON.stringify(jsonObject));
+                                            $('#nextPageButton').show();
+                                            $('#table').hide();
+                                            $('#submitButton').hide();
+                                            $('#thankYou').show()
+                                            $('#thankYou').append('<div class="item"> <h1>THANK YOU, YOUR RESPONSE HAS BEEN SAVED</h1></div>');
+                                            $('#summary').show();
+                                            $('#summary').append('<div class="item">' +
+                                                                  '<h1>Summary</h1>'+
+                                                                  '<table>' +
+                                                                  '<tr>' +
+                                                                  '<th>Question</th> ' +
+                                                                  '<th>Response</th> ' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q1</td>' +
+                                                                  '<td>' + R1 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q2</td>' +
+                                                                  '<td>' + R2 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q3</td>' +
+                                                                  '<td>' + R3 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q4</td>' +
+                                                                  '<td>' + R4 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q5</td>' +
+                                                                  '<td>' + R5 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q6</td>' +
+                                                                  '<td>' + R6 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q7</td>' +
+                                                                  '<td>' + R7 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q8</td>' +
+                                                                  '<td>' + R8 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q9</td>' +
+                                                                  '<td>' + R9 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q10</td>' +
+                                                                  '<td>' + R10 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q11</td>' +
+                                                                  '<td>' + R11 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q12</td>' +
+                                                                  '<td>' + R12 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '</table>   ' +
+                                                                  '</div>');
+                                        }
+                                    });
+
+                                });
+
+
+                            </script>
+                            <table id="table" style="width:100%">
+                                <tr>
+                                    <td>Did the team define a Sprint goal?(Are all backlog items somewhat related?)</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check1" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check1" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Are All Team members going to be present including Product Owner?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check2" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check2" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Is the duration of the sprint less than or equal to 2 weeks?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check3" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check3" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Is the product backlog groomed and ready for Sprint Planning?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check4" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check4" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team members break down each backlog item into a detailed task plan ?(Sprint Plan/Sprint Backlog)</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check5" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check5" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Are all tasks estimated at 5 or less story points?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check6" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check6" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Does the teams measured velocity for the sprint duration match the agreed on sprint deliverables?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check7" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check7" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team define capacity in hours? How many person hours per Sprint? Total team capacity ?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check8" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check8" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team proactively identify dependencies among tasks or external dependencies with other teams?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check9" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check9" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team proactively identify potential impediments that may occur during the sprint?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check10" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check10" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>How does the team divide tasks between functional and technical aspects, what is the healthy ratio?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check11" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check11" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>If refactoring the application is necessary, does the team have time built into the sprint to do so?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check12" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check12" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <input type="button" class="pull-right" id="submitButton" value="submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div>	<!--/.main-->
+
+
+</body>
+
+</html>

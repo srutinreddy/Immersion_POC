@@ -1,0 +1,27 @@
+﻿Merge branch 'master' of https://github.com/sorkan/Immersion_POC into sorkan-master
+
+# Conflicts:
+#	Immersion_POC/Index.html
+#	Immersion_POC/admin.html
+#	Immersion_POC/calendar.html
+#	Immersion_POC/ekg.html
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch sorkan-master
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Immersion_POC/Index.html
+#	modified:   Immersion_POC/admin.html
+#	modified:   Immersion_POC/calendar.html
+#	modified:   Immersion_POC/ekg.html
+#	new file:   Immersion_POC/questionaire.html
+#
+
