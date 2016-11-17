@@ -171,7 +171,6 @@
                                         var R3 = $('input[name="check3"]:checked').val();
                                         var R4 = $('input[name="check4"]:checked').val();
                                         var R5 = $('input[name="check5"]:checked').val();
-                                        var R6 = $('input[name="check6"]:checked').val();
                                         if (R1 == undefined) {
                                             alert("Q1 not answered")
                                         }
@@ -181,9 +180,36 @@
                                         else if (R3 == undefined) {
                                             alert("Q3 not answered")
                                         }
+                                        else if (R4 == undefined) {
+                                            alert("Q4 not answered")
+                                        }
+                                        else if (R5 == undefined) {
+                                            alert("Q5 not answered")
+                                        }
                                         else {
-                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3};
+                                            //var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3};
                                             //alert(JSON.stringify(jsonObject));
+                                            var questionarename = "CONTINUOUSDEPLOYMENT";
+                                            var param = "add";
+                                            var email = "srutinreddy.palla";
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3 + "&q4=" + R4 + "&q5=" + R5;
+
+                                            jQuery.support.cors = true;
+                                            $.ajax({
+                                                url: url,
+                                                dataType: 'json',
+                                                type: 'get',
+                                                contentType: 'application/json',
+                                                processData: false,
+                                                success: function (data, textStatus, jQxhr) {
+                                                    //alert(JSON.stringify(data));
+                                                    //$('#response').html(JSON.stringify(data));
+                                                },
+                                                error: function (jqXhr, textStatus, errorThrown) {
+                                                    //alert(errorThrown);
+                                                    //$('#response').html(JSON.stringify(errorThrown));
+                                                }
+                                            });
                                             $('#nextPageButton').show();
                                             $('#table').hide();
                                             $('#submitButton').hide();
@@ -208,6 +234,14 @@
                                                                   '<tr>       ' +
                                                                   '<td>Q3</td>' +
                                                                   '<td>' + R3 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                   '<tr>       ' +
+                                                                  '<td>Q4</td>' +
+                                                                  '<td>' + R4 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                   '<tr>       ' +
+                                                                  '<td>Q5</td>' +
+                                                                  '<td>' + R5 + '</td>' +
                                                                   '</tr>      ' +
                                                                   '</table>   ' +
                                                                   '</div>');
@@ -243,6 +277,24 @@
                                         <form action="">
                                             <input class="radio-inline" type="radio" name="check3" value="yes"> yes
                                             <input class="radio-inline" type="radio" name="check3" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Is the code deployed daily?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check4" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check4" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Does a full production deploy take less than ten minutes?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check5" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check5" value="no"> no
                                         </form>
                                     </td>
                                 </tr>

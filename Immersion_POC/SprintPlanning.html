@@ -172,6 +172,12 @@
                                         var R4 = $('input[name="check4"]:checked').val();
                                         var R5 = $('input[name="check5"]:checked').val();
                                         var R6 = $('input[name="check6"]:checked').val();
+                                        var R7 = $('input[name="check7"]:checked').val();
+                                        var R8 = $('input[name="check8"]:checked').val();
+                                        var R9 = $('input[name="check9"]:checked').val();
+                                        var R10 = $('input[name="check10"]:checked').val();
+                                        var R11 = $('input[name="check11"]:checked').val();
+                                        var R12 = $('input[name="check12"]:checked').val();
                                         if (R1 == undefined) {
                                             alert("Q1 not answered")
                                         }
@@ -181,12 +187,38 @@
                                         else if (R3 == undefined) {
                                             alert("Q3 not answered")
                                         }
+                                        else if (R4 == undefined) {
+                                            alert("Q4 not answered")
+                                        }
+                                        else if (R5 == undefined) {
+                                            alert("Q5 not answered")
+                                        }
+                                        else if (R6 == undefined) {
+                                            alert("Q6 not answered")
+                                        }
+                                        else if (R7 == undefined) {
+                                            alert("Q7 not answered")
+                                        }
+                                        else if (R8 == undefined) {
+                                            alert("Q8 not answered")
+                                        }
+                                        else if (R9 == undefined) {
+                                            alert("Q9 not answered")
+                                        }
+                                        else if (R10 == undefined) {
+                                            alert("Q10 not answered")
+                                        }
+                                        else if (R11 == undefined) {
+                                            alert("Q11 not answered")
+                                        }
+                                        else if (R12 == undefined) {
+                                            alert("Q12 not answered")
+                                        }
                                         else {
-                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3 };
                                             var questionarename = "SPRINTPLANNING";
                                             var param = "add";
                                             var email = "srutinreddy.palla";
-                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3;
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3 + "&q4=" + R4 + "&q5=" + R5 + "&q6=" + R6 + "&q7=" + R7 + "&q8=" + R8 + "&q9=" + R9 + "&q10=" + R10 + "&q11=" + R11 + "&q12=" + R12;
 
                                             jQuery.support.cors = true;
                                             $.ajax({
@@ -230,6 +262,42 @@
                                                                   '<td>Q3</td>' +
                                                                   '<td>' + R3 + '</td>' +
                                                                   '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q4</td>' +
+                                                                  '<td>' + R4 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q5</td>' +
+                                                                  '<td>' + R5 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q6</td>' +
+                                                                  '<td>' + R6 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q7</td>' +
+                                                                  '<td>' + R7 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q8</td>' +
+                                                                  '<td>' + R8 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q9</td>' +
+                                                                  '<td>' + R9 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q10</td>' +
+                                                                  '<td>' + R10 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q11</td>' +
+                                                                  '<td>' + R11 + '</td>' +
+                                                                  '</tr>      ' +
+                                                                  '<tr>       ' +
+                                                                  '<td>Q12</td>' +
+                                                                  '<td>' + R12 + '</td>' +
+                                                                  '</tr>      ' +
                                                                   '</table>   ' +
                                                                   '</div>');
                                         }
@@ -264,6 +332,87 @@
                                         <form action="">
                                             <input class="radio-inline" type="radio" name="check3" value="yes"> yes
                                             <input class="radio-inline" type="radio" name="check3" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Is the product backlog groomed and ready for Sprint Planning?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check4" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check4" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team members break down each backlog item into a detailed task plan ?(Sprint Plan/Sprint Backlog)</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check5" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check5" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Are all tasks estimated at 5 or less story points?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check6" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check6" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> Does the teams measured velocity for the sprint duration match the agreed on sprint deliverables?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check7" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check7" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team define capacity in hours? How many person hours per Sprint? Total team capacity ?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check8" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check8" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team proactively identify dependencies among tasks or external dependencies with other teams?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check9" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check9" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Did the team proactively identify potential impediments that may occur during the sprint?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check10" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check10" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>How does the team divide tasks between functional and technical aspects, what is the healthy ratio?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check11" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check11" value="no"> no
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>If refactoring the application is necessary, does the team have time built into the sprint to do so?</td>
+                                    <td>
+                                        <form action="">
+                                            <input class="radio-inline" type="radio" name="check12" value="yes"> yes
+                                            <input class="radio-inline" type="radio" name="check12" value="no"> no
                                         </form>
                                     </td>
                                 </tr>

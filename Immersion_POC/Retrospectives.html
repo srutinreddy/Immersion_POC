@@ -144,12 +144,14 @@
                             <div id="thankYou">
 
                             </div>
+                            <center>  <input type="button" value="next" id="nextPageButton" /></center>
                             <script>
                                 $(document).ready(function () {
                                     $('#thankYou').hide();
                                     $('#table').hide();
                                     $('#submitButton').hide();
                                     $('#summary').hide();
+                                    $('#nextPageButton').hide();
 
                                     $('#startButton').on("click", function () {
                                         $('#table').show();
@@ -157,6 +159,10 @@
                                         $('#startButton').hide();
                                         $('#thankYou').hide();
                                         $('#summary').hide();
+                                        $('#nextPageButton').hide();
+                                    });
+                                    $('#nextPageButton').on("click", function () {
+                                        window.location.href = "CustomerAcceptance.html";
                                     });
 
                                     $('#submitButton').on("click", function () {
@@ -176,7 +182,29 @@
                                             alert("Q3 not answered")
                                         }
                                         else {
-                                            var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3};
+                                            var questionarename = "RETROSPECTIVES   ";
+                                            var param = "add";
+                                            var email = "srutinreddy.palla";
+                                            var url = "http://10.0.1.89/cgi-bin/questionaire.cgi?useremail=" + email + "&category=" + questionarename + "&mode=" + param + "&q1=" + R1 + "&q2=" + R2 + "&q3=" + R3;
+
+                                            jQuery.support.cors = true;
+                                            $.ajax({
+                                                url: url,
+                                                dataType: 'json',
+                                                type: 'get',
+                                                contentType: 'application/json',
+                                                processData: false,
+                                                success: function (data, textStatus, jQxhr) {
+                                                    //alert(JSON.stringify(data));
+                                                    //$('#response').html(JSON.stringify(data));
+                                                },
+                                                error: function (jqXhr, textStatus, errorThrown) {
+                                                    //alert(errorThrown);
+                                                    //$('#response').html(JSON.stringify(errorThrown));
+                                                }
+                                            });
+                                            $('#nextPageButton').show();
+                                            //var jsonObject = { "Q1": R1, "Q2": R2, "Q3": R3};
                                             //alert(JSON.stringify(jsonObject));
                                             $('#table').hide();
                                             $('#submitButton').hide();

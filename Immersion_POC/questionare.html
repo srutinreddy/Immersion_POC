@@ -160,6 +160,14 @@
                                     success: function (data, textStatus, jQxhr) {
                                         //alert(JSON.stringify(data));
                                         $('#response').html(JSON.stringify(data));
+                                        console.log("data.sub_data " + JSON.stringify(data.sub_data));
+                                        console.log("data.user_name " + JSON.stringify(data.user_name));
+                                        console.log("data.sub_data.stat_avg[0] " + JSON.stringify(data.sub_data.stat_avg[0]));
+                                        console.log("data.sub_data.cat[0] " + JSON.stringify(data.sub_data.cat[0]));
+                                        console.log("data.sub_data.stat_avg[1] " + JSON.stringify(data.sub_data.stat_avg[1]));
+                                        console.log("data.sub_data.cat[1] " + JSON.stringify(data.sub_data.cat[1]));
+
+
                                     },
                                     error: function (jqXhr, textStatus, errorThrown) {
                                         //alert(errorThrown);
